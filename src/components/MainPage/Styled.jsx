@@ -136,8 +136,8 @@ export const RowTitle = styled.h2`
 export const RowPosters = styled.div`
     display: flex;
 overflow-y: hidden;
-overflow-x: scroll;
-scroll-behavior: smooth;
+/* overflow-x: scroll; */
+/* scroll-behavior: smooth; */
 /* z-index: 500; */
 `
 
