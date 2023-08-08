@@ -13,12 +13,20 @@ export default function MovieModal({
     vote_average,
     setModalOpen
 }){
+    const modalRef = useRef();
+
+    // 모달창 외부 클릭시 모달창 닫기
+    const handleCloseModal = (event) => {
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            setModalOpen(false);
+        }
+    };
 
     return (
-        <ModalContainer>
-            <Modal>
+        <ModalContainer onClick={handleCloseModal}>
+            <Modal ref={modalRef}>
                 <ModalCloseBtn
-                    
+                    onClick={()=>setModalOpen(false)}
                 >
                     X
                 </ModalCloseBtn>
