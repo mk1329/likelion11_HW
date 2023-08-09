@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Container, LogoImg, UserImg } from "./Styled.jsx"
+import { Container, LogoImg, NavInput, UserImg } from "./Styled.jsx"
+import { useNavigate } from "react-router-dom";
 
 export default function Nav() {
 
@@ -24,6 +25,16 @@ export default function Nav() {
     };
   }, []);
 
+  const [searchValue, setsearchValue] = useState("");
+  const navigate = useNavigate();
+
+  // 검색어에 해당하는 페이지로 이동
+  // 검색창을 nav바 안에 넣음 ...
+  const handleChange = (e) => {
+    setsearchValue(e.target.value);
+    navigate(`/search?q=${e.target.value}`);
+  };
+
   return(
     <Container show={`${show}`}>
       {/* show={show ? 'true' : 'false'} */}
@@ -31,6 +42,13 @@ export default function Nav() {
         <LogoImg
             alt="Netflix logo"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2880px-Netflix_2015_logo.svg.png"
+        />
+        <NavInput
+          value={searchValue}
+          onChange={handleChange}
+          className="nav__input"
+          type="text"
+          placeholder="영화제목을 입력해주세요."
         />
         <UserImg 
             alt="User logged"

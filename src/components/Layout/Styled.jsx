@@ -91,15 +91,28 @@ export const FooterLink = styled.a`
 `;
 
 export const FooterDescContainer = styled.div`
-  margin-top: 30px 
+  margin-top: 30px;
   
   /* @media (max-width: 768px) {
     margin-top: 20px;
   } */
+
 `;
 
 export const FooterDescRights = styled.h2`
   color: white;
   font-size: 14px;
   text-align: center;
+`;
+
+// nav search input
+export const NavInput = styled.input`
+position: fixed;
+left: 50%;
+transform: translate(-50%, 0);
+background-color: rgba(0, 0, 0, 0.637);
+border-radius: 5px;
+color: white;
+padding: 5px;
+border: none;
 `;
